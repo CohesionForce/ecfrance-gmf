@@ -12,10 +12,9 @@
 package org.eclipse.gmf.runtime.common.ui.action.global.providers;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
 
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.internal.l10n.CommonUIActionMessages;
@@ -74,15 +73,11 @@ public class RevertGlobalActionHandler
 	 *         revert, <code>false</code> otherwise.
 	 */
 	private boolean confirmRevert() {
-		IWorkbenchWindow window = PlatformUI.getWorkbench()
-			.getActiveWorkbenchWindow();
-
-		if (window != null) {
 
 			String message = CommonUIActionMessages.RevertGlobalActionHandler_messageBox_message
 				+ "\n\n" + CommonUIActionMessages.RevertGlobalActionHandler_messageBox_prompt; //$NON-NLS-1$
 
-			MessageBox messageBox = new MessageBox(window.getShell(), SWT.YES
+			MessageBox messageBox = new MessageBox(Display.getCurrent().getActiveShell(), SWT.YES
 				| SWT.NO | SWT.CANCEL | SWT.ICON_QUESTION);
 
 			messageBox.setText(CommonUIActionMessages.RevertGlobalActionHandler_messageBox_title);
@@ -91,7 +86,6 @@ public class RevertGlobalActionHandler
 			if (messageBox.open() == SWT.YES) {
 				return true;
 			}
-		}
 		return false;
 	}
 

@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.common.core.util.Trace;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionDelegate;
 import org.eclipse.gmf.runtime.common.ui.action.internal.CommonUIActionDebugOptions;
 import org.eclipse.gmf.runtime.common.ui.action.internal.CommonUIActionPlugin;
-import org.eclipse.gmf.runtime.common.ui.util.WorkbenchPartActivator;
+//import org.eclipse.gmf.runtime.common.ui.util.WorkbenchPartActivator;
 
 /**
  * Action delegate to show the properties window or give it focus if it's
@@ -37,7 +37,8 @@ public class PropertyWindowActionDelegate
 	 */
 	protected void doRun(IProgressMonitor progressMonitor) {
 		Trace.trace(CommonUIActionPlugin.getDefault(), CommonUIActionDebugOptions.METHODS_ENTERING, "PropertyWindowActionDelegate.doRun Entering"); //$NON-NLS-1$
-		WorkbenchPartActivator.showPropertySheet();
+		// FIXME - PartService
+		//		WorkbenchPartActivator.showPropertySheet();
 		Trace.trace(CommonUIActionPlugin.getDefault(), CommonUIActionDebugOptions.METHODS_EXITING, "PropertyWindowActionDelegate.doRun Exiting"); //$NON-NLS-1$
 	}
 

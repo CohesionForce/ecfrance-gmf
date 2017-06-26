@@ -23,7 +23,7 @@ import org.eclipse.gmf.runtime.common.ui.printing.internal.CommonPrintingDebugOp
 import org.eclipse.gmf.runtime.common.ui.printing.internal.CommonPrintingStatusCodes;
 import org.eclipse.gmf.runtime.common.ui.printing.internal.PrintingPlugin;
 import org.eclipse.swt.printing.PrinterData;
-import org.eclipse.ui.PlatformUI;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * The PrintHelper implements the IPrintHelper interface for the platform
@@ -308,8 +308,7 @@ public class PrintHelper implements IPrintHelper {
 	public PrinterData openPrintDlg(List diagramList) {
 
 		// set owner to make it modal
-		String title = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-				.getShell().getText();
+		String title = Display.getCurrent().getActiveShell().getText();
 
 		assert null != title : "title cannot be null"; //$NON-NLS-1$
 

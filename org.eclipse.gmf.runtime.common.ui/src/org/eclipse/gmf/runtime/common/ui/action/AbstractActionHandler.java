@@ -114,23 +114,24 @@ public abstract class AbstractActionHandler
 
 		setWorkbenchPart(workbenchPart);
 
-		this.workbenchPage = workbenchPart.getSite().getPage();
-
-		// This is needed for backward compatibility in case the creator
-		// of the action (using this constructor) did not dispose of it
-		this.partListener = new PartListenerAdapter() {
-
-			/**
-			 * when the part closes, remove the listener to the workbench page
-			 * and remove all listeners.
-			 */
-			public void partClosed(IWorkbenchPart part) {
-				if (getWorkbenchPart() == part) {
-					dispose();
-				}
-			}
-		};
-		workbenchPage.addPartListener(partListener);
+		//FIXME - PartListener
+//		this.workbenchPage = workbenchPart.getSite().getPage();
+//
+//		// This is needed for backward compatibility in case the creator
+//		// of the action (using this constructor) did not dispose of it
+//		this.partListener = new PartListenerAdapter() {
+//
+//			/**
+//			 * when the part closes, remove the listener to the workbench page
+//			 * and remove all listeners.
+//			 */
+//			public void partClosed(IWorkbenchPart part) {
+//				if (getWorkbenchPart() == part) {
+//					dispose();
+//				}
+//			}
+//		};
+//		workbenchPage.addPartListener(partListener);
 	}
 
 	/**
@@ -240,11 +241,12 @@ public abstract class AbstractActionHandler
 			if (contributedToPart(workbenchPart)) {
 				
 				if (isSelectionListener()) {
-					ISelectionProvider provider = getWorkbenchPart().getSite()
-							.getSelectionProvider();
-					if (provider != null) {
-						provider.addSelectionChangedListener(this);
-					}
+					//FIXME - SelectionProvider
+//					ISelectionProvider provider = getWorkbenchPart().getSite()
+//							.getSelectionProvider();
+//					if (provider != null) {
+//						provider.addSelectionChangedListener(this);
+//					}
 				}
 				if (isPropertyListener()) {
 					getWorkbenchPart().addPropertyListener(this);
@@ -412,15 +414,16 @@ public abstract class AbstractActionHandler
 	protected ISelection getSelection() {
         ISelection selection = null;
         ISelectionService selectionService = null;
-        if (getWorkbenchPart() != null && getWorkbenchPart().getSite().getWorkbenchWindow() != null) {
-            selectionService = getWorkbenchPart().getSite()
-                .getWorkbenchWindow().getSelectionService();
-        }
-
-        if (selectionService != null) {
-            selection = selectionService.getSelection();
-        }
-
+        //FIXME - SelectionService
+//        if (getWorkbenchPart() != null && getWorkbenchPart().getSite().getWorkbenchWindow() != null) {
+//            selectionService = getWorkbenchPart().getSite()
+//                .getWorkbenchWindow().getSelectionService();
+//        }
+//
+//        if (selectionService != null) {
+//            selection = selectionService.getSelection();
+//        }
+//
         return (selection != null) ? selection
             : StructuredSelection.EMPTY;
     }

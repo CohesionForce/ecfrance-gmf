@@ -31,7 +31,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import org.eclipse.gmf.runtime.common.core.util.Log;
@@ -466,13 +465,14 @@ public class ShowHideRelationshipsDialog
 		getShell().setText(CommonUIMessages.ShowHideRelationshipsDialog_Title);
 
         // set context sensitive help
-        if (helpContextId != null) {
-            PlatformUI.getWorkbench().getHelpSystem().setHelp(parent,
-                helpContextId);
-        } else {
-            PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, 
-                "org.eclipse.gmf.runtime.common.ui.egmf0100"); //$NON-NLS-1$
-        }
+		//FIXME - HELP
+//        if (helpContextId != null) {
+//            PlatformUI.getWorkbench().getHelpSystem().setHelp(parent,
+//                helpContextId);
+//        } else {
+//            PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, 
+//                "org.eclipse.gmf.runtime.common.ui.egmf0100"); //$NON-NLS-1$
+//        }
 
 		return parent;
 

@@ -24,7 +24,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 
 /**
@@ -48,28 +48,29 @@ public class ReadOnlyDiagramPropertiesModifier
 	 */
 	public boolean provides(IOperation operation) {
 
-		if (operation instanceof ApplyModifiersOperation) {
-
-			IWorkbench workbench = PlatformUI.getWorkbench();
-
-			if (workbench != null) {
-				IWorkbenchWindow window = workbench.getActiveWorkbenchWindow();
-
-				if (window != null) {
-					IWorkbenchPage page = window.getActivePage();
-                    
-                    if (page != null) {
-                        IWorkbenchPart part = page.getActivePart();
-
-                        return part instanceof IReadOnlyDiagramPropertySheetPageContributor
-                            || (part instanceof DiagramEditor && !((DiagramEditor) part)
-                                .isWritable());
-                    }
-
-				}
-			}
-
-		}
+		//FIXME - PartService
+//		if (operation instanceof ApplyModifiersOperation) {
+//
+//			IWorkbench workbench = PlatformUI.getWorkbench();
+//
+//			if (workbench != null) {
+//				IWorkbenchWindow window = workbench.getActiveWorkbenchWindow();
+//
+//				if (window != null) {
+//					IWorkbenchPage page = window.getActivePage();
+//                    
+//                    if (page != null) {
+//                        IWorkbenchPart part = page.getActivePart();
+//
+//                        return part instanceof IReadOnlyDiagramPropertySheetPageContributor
+//                            || (part instanceof DiagramEditor && !((DiagramEditor) part)
+//                                .isWritable());
+//                    }
+//
+//				}
+//			}
+//
+//		}
 
 		return false;
 	}

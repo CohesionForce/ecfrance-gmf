@@ -13,7 +13,7 @@ package org.eclipse.gmf.runtime.emf.ui.internal;
 
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
@@ -72,7 +72,9 @@ public class MslUIPlugin
 	 *         window is not a workbench window
 	 */
 	public static IWorkbenchWindow getActiveWorkbenchWindow() {
-		return PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		//FIXME - PartService
+//		return PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		return null;
 	}
 
 	/**

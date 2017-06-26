@@ -34,7 +34,7 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorPlugin
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.l10n.EditorMessages;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.Bundle;
 
 import com.ibm.icu.util.StringTokenizer;
@@ -124,10 +124,11 @@ public class DocumentProviderRegistry {
 		extensionPoint= Platform.getExtensionRegistry().getExtensionPoint(EditorPlugin.getPluginId(), "documentProviders"); //$NON-NLS-1$
 
 		if (extensionPoint == null) {
-			String msg= NLS.bind(EditorMessages.DocumentProviderRegistry_error_extension_point_not_found, PlatformUI.PLUGIN_ID);
-			Bundle bundle = Platform.getBundle(EditorPlugin.getPluginId());
-			ILog log= Platform.getLog(bundle);
-			log.log(new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, 0, msg, null));
+			//FIXME - Plugin Id
+//			String msg= NLS.bind(EditorMessages.DocumentProviderRegistry_error_extension_point_not_found, PlatformUI.PLUGIN_ID);
+//			Bundle bundle = Platform.getBundle(EditorPlugin.getPluginId());
+//			ILog log= Platform.getLog(bundle);
+//			log.log(new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, 0, msg, null));
 			return;
 		}
 

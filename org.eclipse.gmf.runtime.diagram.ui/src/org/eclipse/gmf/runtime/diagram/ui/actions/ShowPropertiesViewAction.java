@@ -14,7 +14,7 @@ package org.eclipse.gmf.runtime.diagram.ui.actions;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gmf.runtime.common.core.util.Trace;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
-import org.eclipse.gmf.runtime.common.ui.util.WorkbenchPartActivator;
+//import org.eclipse.gmf.runtime.common.ui.util.WorkbenchPartActivator;
 import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIDebugOptions;
 import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIPlugin;
 import org.eclipse.gmf.runtime.diagram.ui.internal.l10n.DiagramUIPluginImages;
@@ -64,7 +64,8 @@ public class ShowPropertiesViewAction extends AbstractActionHandler {
 	 */
 	protected void doRun(IProgressMonitor progressMonitor) {
 		Trace.trace(DiagramUIPlugin.getInstance(), DiagramUIDebugOptions.METHODS_ENTERING, "ShowPropertiesView.doRun Entering"); //$NON-NLS-1$
-		WorkbenchPartActivator.showPropertySheet();
+		//FIXME - PartService
+//		WorkbenchPartActivator.showPropertySheet();
 		Trace.trace(DiagramUIPlugin.getInstance(), DiagramUIDebugOptions.METHODS_EXITING, "ShowPropertiesView.doRun Exiting"); //$NON-NLS-1$
 	}
 

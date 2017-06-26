@@ -19,7 +19,6 @@ import org.eclipse.gmf.runtime.common.ui.action.internal.l10n.CommonUIActionPlug
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
 
 /**
  * Global action for printing
@@ -71,7 +70,8 @@ public final class GlobalPrintAction extends GlobalAction {
 		setDisabledImageDescriptor(DISABLED_PRINT_IMAGE);
 
 		/* set the context sensitive help */
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(this, IHelpContextIds.PX_U_DEFAULT_CS_HELP);
+		//FIXME - HELP
+//		PlatformUI.getWorkbench().getHelpSystem().setHelp(this, IHelpContextIds.PX_U_DEFAULT_CS_HELP);
 		
 		super.init();
 	}

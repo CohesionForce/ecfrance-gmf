@@ -37,7 +37,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
@@ -240,14 +240,16 @@ public abstract class FileDocumentProvider
 			if (runnable instanceof SafeChange)
 				fireElementStateChanging(fFileEditorInput);
 
-			IWorkbench workbench= PlatformUI.getWorkbench();
-			IWorkbenchWindow[] windows= workbench.getWorkbenchWindows();
-			if (windows != null && windows.length > 0) {
-				Display display= windows[0].getShell().getDisplay();
-				display.asyncExec(runnable);
-			} else {
-				runnable.run();
-			}
+			//FIXME - DISPLAY
+//			IWorkbench workbench= PlatformUI.getWorkbench();
+//			IWorkbenchWindow[] windows= workbench.getWorkbenchWindows();
+//			if (windows != null && windows.length > 0) {
+//				Display display= windows[0].getShell().getDisplay();
+//				display.asyncExec(runnable);
+//			} else {
+//				runnable.run();
+//			}
+			Display.getDefault().asyncExec(runnable);
 		}
 	}
 
@@ -297,7 +299,9 @@ public abstract class FileDocumentProvider
 	 */
 	protected void checkSynchronizationState(long cachedModificationStamp, IResource resource) throws CoreException {
 		if (cachedModificationStamp != computeModificationStamp(resource)) {
-			Status status= new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IResourceStatus.OUT_OF_SYNC_LOCAL, EditorMessages.FileDocumentProvider_error_out_of_sync, null);
+			//FIXME - Plugin Id
+//			Status status= new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IResourceStatus.OUT_OF_SYNC_LOCAL, EditorMessages.FileDocumentProvider_error_out_of_sync, null);
+			Status status= new Status(IStatus.ERROR, "PlatformUI.PLUGIN_ID", IResourceStatus.OUT_OF_SYNC_LOCAL, EditorMessages.FileDocumentProvider_error_out_of_sync, null);
 			throw new CoreException(status);
 		}
 	}

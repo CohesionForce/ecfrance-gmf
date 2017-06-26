@@ -16,9 +16,10 @@ import org.eclipse.gmf.runtime.diagram.ui.internal.dialogs.PageSetupDialog;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * This is the action for page setup.  It shows the page setup dialog.
@@ -59,7 +60,9 @@ public class PageSetupAction
 		//}
 		
 		//new PageSetupDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), p).open();
-		new PageSetupDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).open();
+		//FIXME - SHELL
+		new PageSetupDialog(Display.getDefault().getActiveShell()).open();
+//		new PageSetupDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).open();
 	}
 
 	/**

@@ -30,7 +30,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.progress.UIJob;
 
 /**
@@ -303,20 +303,21 @@ public abstract class DiagramAssistantEditPolicy
 	 * @return True if the diagram part is active; false otherwise.
 	 */
 	private boolean isDiagramPartActive() {
-		IWorkbenchWindow window = PlatformUI.getWorkbench()
-			.getActiveWorkbenchWindow();
-
-		if (window != null) {
-			IWorkbenchPage page = window.getActivePage();
-			if (page != null) {
-				IWorkbenchPart activePart = page.getActivePart();
-				if (activePart instanceof IDiagramWorkbenchPart) {
-					return ((IDiagramWorkbenchPart) activePart)
-						.getDiagramEditPart().getRoot().equals(
-							((IGraphicalEditPart) getHost()).getRoot());
-				}
-			}
-		}
+		//FIXME - PartService
+//		IWorkbenchWindow window = PlatformUI.getWorkbench()
+//			.getActiveWorkbenchWindow();
+//
+//		if (window != null) {
+//			IWorkbenchPage page = window.getActivePage();
+//			if (page != null) {
+//				IWorkbenchPart activePart = page.getActivePart();
+//				if (activePart instanceof IDiagramWorkbenchPart) {
+//					return ((IDiagramWorkbenchPart) activePart)
+//						.getDiagramEditPart().getRoot().equals(
+//							((IGraphicalEditPart) getHost()).getRoot());
+//				}
+//			}
+//		}
 		return false;
 	}
 	

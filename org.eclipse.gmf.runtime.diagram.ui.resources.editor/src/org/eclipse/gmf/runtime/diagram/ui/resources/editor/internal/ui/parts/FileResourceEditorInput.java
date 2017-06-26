@@ -18,7 +18,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPathEditorInput;
 import org.eclipse.ui.IPersistableElement;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * An IFile based editor input that does not extend FileEditorInput.
@@ -65,7 +65,9 @@ public class FileResourceEditorInput
 	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
 	 */
 	public ImageDescriptor getImageDescriptor() {
-		return PlatformUI.getWorkbench().getEditorRegistry().getImageDescriptor(file.getName());
+		//FIXME - Editor Registry
+//		return PlatformUI.getWorkbench().getEditorRegistry().getImageDescriptor(file.getName());
+		return null;
 	}
 
 	/* (non-Javadoc)

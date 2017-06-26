@@ -17,7 +17,6 @@ import org.eclipse.ui.IEditorActionBarContributor;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.EditorActionBarContributor;
 
 /**
@@ -52,9 +51,7 @@ public class StatusLineUtil {
             return;
         }
 
-		final Display workbenchDisplay = PlatformUI.isWorkbenchRunning() ? PlatformUI
-				.getWorkbench().getDisplay()
-				: Display.getDefault();
+		final Display workbenchDisplay = Display.getDefault();
 
         if (workbenchDisplay.getThread() == Thread.currentThread()) {
             // we're already on the UI thread

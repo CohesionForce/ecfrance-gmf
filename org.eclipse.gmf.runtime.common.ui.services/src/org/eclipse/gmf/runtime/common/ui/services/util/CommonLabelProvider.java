@@ -16,7 +16,7 @@ import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 import org.eclipse.gmf.runtime.common.core.util.StringStatics;
 import org.eclipse.gmf.runtime.common.ui.services.icon.IconOptions;
@@ -101,10 +101,12 @@ public class CommonLabelProvider
 	public CommonLabelProvider() {
 		super(
 			new MyDelegatingLabelProvider(),
-			PlatformUI
-				.getWorkbench()
-				.getDecoratorManager()
-				.getLabelDecorator());
+			//FIXME - LabelDecorator
+//			PlatformUI
+//				.getWorkbench()
+//				.getDecoratorManager()
+//				.getLabelDecorator());
+			null);
 	}
 	
 	/**

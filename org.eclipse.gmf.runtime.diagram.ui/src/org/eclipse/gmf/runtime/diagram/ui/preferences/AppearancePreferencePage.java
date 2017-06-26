@@ -32,7 +32,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * Appearance General preference page.
@@ -281,9 +281,7 @@ protected void addFontAndColorFields(Composite composite) {
 		if (Display.getCurrent() != null) {
 			initDefaultFontProc(theStore);
 		} else {
-			Display display = PlatformUI.isWorkbenchRunning() ? PlatformUI
-					.getWorkbench().getDisplay() : Display.getDefault();
-			display.syncExec(new Runnable(){
+			Display.getDefault().syncExec(new Runnable(){
 				public void run() {
 					initDefaultFontProc(theStore);
 				}

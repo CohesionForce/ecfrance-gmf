@@ -13,7 +13,7 @@ package org.eclipse.gmf.runtime.emf.ui.properties.internal;
 
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
@@ -58,7 +58,9 @@ public class EMFPropertiesPlugin
 	 *         window is not a workbench window
 	 */
 	public static IWorkbenchWindow getActiveWorkbenchWindow() {
-		return PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		//FIXME - PartService
+//		return PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		return null;
 	}
 
 	/**

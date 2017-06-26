@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.emf.core.util.PackageUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * provides different utility functions for the EditPart
@@ -99,7 +99,8 @@ public class EditPartUtil {
 		InternalTransactionalEditingDomain editingDomain = (InternalTransactionalEditingDomain)editPart.getEditingDomain();
         
 		if (Display.getCurrent() == null && editingDomain != null && editingDomain.getActiveTransaction() != null) {
-			Display display = PlatformUI.isWorkbenchRunning() ? PlatformUI.getWorkbench().getDisplay() : Display.getDefault();
+			//FIXME - DISPLAY
+			Display display = Display.getCurrent();//PlatformUI.isWorkbenchRunning() ? PlatformUI.getWorkbench().getDisplay() : Display.getDefault();
 			if (editingDomain != null) {
 	        	display.syncExec(editingDomain.createPrivilegedRunnable(runThreadSafe));
 	        }

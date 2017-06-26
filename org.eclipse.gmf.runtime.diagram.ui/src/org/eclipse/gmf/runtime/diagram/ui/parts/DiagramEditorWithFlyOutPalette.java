@@ -40,7 +40,7 @@ import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.activities.ActivityManagerEvent;
 import org.eclipse.ui.activities.IActivityManagerListener;
 
@@ -324,7 +324,10 @@ public abstract class DiagramEditorWithFlyOutPalette
 			FlyoutPaletteComposite.FlyoutPreferences flyoutPrefs = new FlyoutPreferencesImpl(
                 getPreferenceStore());
 
-			splitter = new FlyoutPaletteComposite(parent, SWT.NONE, getSite().getPage(), getPaletteViewerProvider(), flyoutPrefs);
+			//FIXME - IWorkbenchPage
+//			splitter = new FlyoutPaletteComposite(parent, SWT.NONE, getSite().getPage(), getPaletteViewerProvider(), flyoutPrefs);
+			splitter = new FlyoutPaletteComposite(parent, SWT.NONE, null, getPaletteViewerProvider(), flyoutPrefs);
+
 			super.createPartControl(splitter);
 			splitter.setGraphicalControl(getGraphicalControl());
 			if (page != null) {
@@ -603,15 +606,17 @@ public abstract class DiagramEditorWithFlyOutPalette
 		super.startListening();
 		activityManagerListener = createActivityManagerListener();
 		if (activityManagerListener != null) {
-			PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
-				.addActivityManagerListener(activityManagerListener);
+			//FIXME - ActivityManager
+//			PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
+//				.addActivityManagerListener(activityManagerListener);
 		}
 	}
 
 	protected void stopListening() {
 		if (activityManagerListener != null) {
-			PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
-				.removeActivityManagerListener(activityManagerListener);
+			//FIXME - ActivityManager
+//			PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
+//				.removeActivityManagerListener(activityManagerListener);
 			activityManagerListener = null;
 		}
 		super.stopListening();

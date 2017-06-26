@@ -31,9 +31,9 @@ import org.eclipse.gmf.runtime.common.ui.internal.CommonUIPlugin;
 import org.eclipse.gmf.runtime.common.ui.internal.l10n.CommonUIMessages;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.team.core.RepositoryProvider;
-import org.eclipse.ui.PlatformUI;
 
 /**
  * A wrapper around the Eclipse IFileModificationValidator.
@@ -157,8 +157,7 @@ public class FileModificationValidator {
 		} else {
 			MessageDialog
 				.openError(
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-						.getShell(),
+						Display.getDefault().getActiveShell(),
 					CommonUIMessages.FileModificationValidator_SaveProblemDialogTitle,
 					NLS
 						.bind(

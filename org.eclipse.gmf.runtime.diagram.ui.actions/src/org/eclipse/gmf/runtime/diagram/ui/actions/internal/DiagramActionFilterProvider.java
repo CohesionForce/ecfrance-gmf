@@ -13,7 +13,7 @@ package org.eclipse.gmf.runtime.diagram.ui.actions.internal;
 
 import java.util.Iterator;
 
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -43,10 +43,11 @@ public class DiagramActionFilterProvider
 	 *      java.lang.String, java.lang.String)
 	 */
 	protected boolean doTestAttribute(Object target, String name, String value) {
-		if (CAN_DUPLICATE.equals(name)) {
-			return DuplicateActionDelegate.canDuplicate(getStructuredSelection(), PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getPartService().getActivePart());
-		}
+//		if (CAN_DUPLICATE.equals(name)) {
+			//FIXME - PartService
+//			return DuplicateActionDelegate.canDuplicate(getStructuredSelection(), PlatformUI.getWorkbench()
+//					.getActiveWorkbenchWindow().getPartService().getActivePart());
+//		}
 		return false;
 	}
 

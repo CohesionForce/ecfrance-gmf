@@ -27,7 +27,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertyConstants;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
@@ -99,9 +99,10 @@ public abstract class AbstractBasicTextPropertySection
 		public void textChanged(Control control) {
 			if (textModified) {
 				// clear error message
-				IWorkbenchPart part = PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage().getActivePart();
-				StatusLineUtil.outputErrorMessage(part, StringStatics.BLANK);
+				//FIXME - PartService
+//				IWorkbenchPart part = PlatformUI.getWorkbench()
+//					.getActiveWorkbenchWindow().getActivePage().getActivePart();
+//				StatusLineUtil.outputErrorMessage(part, StringStatics.BLANK);
 
 				setPropertyValue(control);
 				textModified = false;

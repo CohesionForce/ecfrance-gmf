@@ -19,7 +19,7 @@ import org.eclipse.gmf.runtime.common.ui.util.WorkbenchPartDescriptor;
 import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIDebugOptions;
 import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIPlugin;
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.activities.ActivityManagerEvent;
 import org.eclipse.ui.activities.IActivityManagerListener;
 
@@ -85,8 +85,9 @@ public abstract class DiagramActionBarContributor
 		bars.updateActionBars();
 		
 		activityManagerListener = new ActivityManagerListener();
-		PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
-			.addActivityManagerListener(activityManagerListener);
+		//FIXME - Activity Manager
+//		PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
+//			.addActivityManagerListener(activityManagerListener);
 	}
 
 	/**
@@ -97,8 +98,9 @@ public abstract class DiagramActionBarContributor
 		descriptor = null;
 		
 		if (activityManagerListener != null) {
-			PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
-				.removeActivityManagerListener(activityManagerListener);
+			//FIXME - ActivityManager
+//			PlatformUI.getWorkbench().getActivitySupport().getActivityManager()
+//				.removeActivityManagerListener(activityManagerListener);
 		}
 		activityManagerListener = null;
 		

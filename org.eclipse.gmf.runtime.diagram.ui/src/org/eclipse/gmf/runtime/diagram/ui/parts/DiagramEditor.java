@@ -754,15 +754,16 @@ public abstract class DiagramEditor
             registry.registerAction(action);
             getSelectionActions().add(action.getId());
 
-            action = new ToggleRouterAction(((IWorkbenchPart) this).getSite().getPage());
-            ((ToggleRouterAction) action).setPartSelector(new IPartSelector() {
-            	public boolean selects(IWorkbenchPart part) {
-            		return part == DiagramEditor.this;
-            	}
-            });
-            action.setText(""); //$NON-NLS-1$ // no text necessary since this is not a visible action
-            registry.registerAction(action);
-            getSelectionActions().add(action.getId());
+            //FIXME - PartSelector
+//            action = new ToggleRouterAction(((IWorkbenchPart) this).getSite().getPage());
+//            ((ToggleRouterAction) action).setPartSelector(new IPartSelector() {
+//            	public boolean selects(IWorkbenchPart part) {
+//            		return part == DiagramEditor.this;
+//            	}
+//            });
+//            action.setText(""); //$NON-NLS-1$ // no text necessary since this is not a visible action
+//            registry.registerAction(action);
+//            getSelectionActions().add(action.getId());
             
             keyHandler.put(KeyStroke.getPressed(SWT.INSERT, 0),
                 getActionRegistry().getAction(InsertAction.ID));
@@ -846,8 +847,9 @@ public abstract class DiagramEditor
         ContextMenuProvider provider = new DiagramContextMenuProvider(this,
             viewer);
         viewer.setContextMenu(provider);
-        getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU,
-            provider, viewer);
+        //FIXME - ContextMenu
+//        getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU,
+//            provider, viewer);
         KeyHandler viewerKeyHandler = new DiagramGraphicalViewerKeyHandler(viewer)
             .setParent(getKeyHandler());
         viewer.setKeyHandler(new DirectEditKeyHandler(viewer)
@@ -1578,10 +1580,11 @@ public abstract class DiagramEditor
 	 */
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
-		IContextService contextService = (IContextService) getSite()
-		  .getService(IContextService.class);
-		if (contextService != null)
-			contextService.activateContext(getContextID());
+		//FIXME - ContextService
+//		IContextService contextService = (IContextService) getSite()
+//		  .getService(IContextService.class);
+//		if (contextService != null)
+//			contextService.activateContext(getContextID());
 	}
 	
 	/**

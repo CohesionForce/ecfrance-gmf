@@ -20,7 +20,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IDiagramPreferenceSupport;
@@ -84,8 +84,9 @@ public class PageSetupDialog extends Dialog implements ILabels {
 		
 		getShell().setText(LABEL_TITLE_PAGE_SETUP);
         
-        PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, 
-            "org.eclipse.gmf.runtime.diagram.ui.egmf0300"); //$NON-NLS-1$
+		//FIXME - HELP
+//        PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, 
+//            "org.eclipse.gmf.runtime.diagram.ui.egmf0300"); //$NON-NLS-1$
 		
 		return parent;
 	}
@@ -147,10 +148,11 @@ public class PageSetupDialog extends Dialog implements ILabels {
 	}
 	
 	private static IDiagramGraphicalViewer getDiagramGraphicalViewer() {
-		IWorkbenchPart page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart();
-		if (page instanceof IDiagramWorkbenchPart) {
-			return ((IDiagramWorkbenchPart)page).getDiagramGraphicalViewer();
-		}
+		//FIXME - PartService
+//		IWorkbenchPart page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart();
+//		if (page instanceof IDiagramWorkbenchPart) {
+//			return ((IDiagramWorkbenchPart)page).getDiagramGraphicalViewer();
+//		}
 		return null;
 	}
 

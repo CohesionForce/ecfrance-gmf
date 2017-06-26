@@ -12,7 +12,6 @@
 package org.eclipse.gmf.runtime.common.ui.util;
 
 import org.eclipse.ui.IPluginContribution;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.activities.IIdentifier;
 import org.eclipse.ui.activities.IWorkbenchActivitySupport;
 import org.eclipse.ui.activities.WorkbenchActivityHelper;
@@ -40,27 +39,28 @@ public class ActivityUtil {
      * @return true unless the ids match only disabled activities.
      */
     public static boolean isEnabled(final String localID, final String pluginID) {
-        if (!WorkbenchActivityHelper.isFiltering())
-            return true;
+        //FIXME - Don't think there is an E4 equivalent for this
+//        if (!WorkbenchActivityHelper.isFiltering())
+//            return true;
 
-        IWorkbenchActivitySupport workbenchActivitySupport = PlatformUI
-            .getWorkbench().getActivitySupport();
-        IIdentifier id = workbenchActivitySupport.getActivityManager()
-            .getIdentifier(
-                WorkbenchActivityHelper
-                    .createUnifiedId(new IPluginContribution() {
-
-                        public String getLocalId() {
-                            return localID;
-                        }
-
-                        public String getPluginId() {
-                            return pluginID;
-                        }
-                    }));
-        if (id != null && !id.isEnabled()) {
-            return false;
-        }
+//        IWorkbenchActivitySupport workbenchActivitySupport = PlatformUI
+//            .getWorkbench().getActivitySupport();
+//        IIdentifier id = workbenchActivitySupport.getActivityManager()
+//            .getIdentifier(
+//                WorkbenchActivityHelper
+//                    .createUnifiedId(new IPluginContribution() {
+//
+//                        public String getLocalId() {
+//                            return localID;
+//                        }
+//
+//                        public String getPluginId() {
+//                            return pluginID;
+//                        }
+//                    }));
+//        if (id != null && !id.isEnabled()) {
+//            return false;
+//        }
 
         return true;
     }

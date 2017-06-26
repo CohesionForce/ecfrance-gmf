@@ -21,7 +21,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IStorageEditorInput;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.Bundle;
 
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.AbstractDocumentProvider;
@@ -183,13 +183,14 @@ public abstract class StorageDocumentProvider
 	 */
 	protected void handleCoreException(CoreException exception, String message) {
 
-		Bundle bundle = Platform.getBundle(PlatformUI.PLUGIN_ID);
-		ILog log= Platform.getLog(bundle);
-
-		if (message != null)
-			log.log(new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, 0, message, exception));
-		else
-			log.log(exception.getStatus());
+		//FIXME - Plugin Id
+//		Bundle bundle = Platform.getBundle(PlatformUI.PLUGIN_ID);
+//		ILog log= Platform.getLog(bundle);
+//
+//		if (message != null)
+//			log.log(new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, 0, message, exception));
+//		else
+//			log.log(exception.getStatus());
 	}
 
 	/**

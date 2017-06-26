@@ -30,7 +30,7 @@ import org.eclipse.gmf.runtime.common.ui.services.internal.elementselection.Matc
 import org.eclipse.gmf.runtime.common.ui.services.internal.l10n.CommonUIServicesMessages;
 import org.eclipse.gmf.runtime.common.ui.services.util.ActivityFilterProviderDescriptor;
 import org.eclipse.osgi.util.NLS;
-import org.eclipse.ui.PlatformUI;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * The element selection service.
@@ -340,7 +340,7 @@ public class ElementSelectionService
             return;
         
         final JobData finalData = data;
-        PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+        Display.getCurrent().asyncExec(new Runnable() {
 
             public void run() {
                 if (finalData.elementSelectionListener != null) {

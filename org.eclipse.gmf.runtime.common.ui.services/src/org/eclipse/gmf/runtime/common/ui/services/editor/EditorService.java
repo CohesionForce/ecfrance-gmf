@@ -113,13 +113,14 @@ public class EditorService
 	public void registerEditor(IEditorPart editor) {
 		assert null != editor;
 
-		String editorId = editor.getEditorSite().getId();
-		List editors = (List) getEditorsMap().get(editorId);
-		if (editors == null) {
-			editors = new ArrayList();
-			getEditorsMap().put(editorId, editors);
-		}
-		editors.add(editor);
+		//FIXME - EditorSite
+//		String editorId = editor.getEditorSite().getId();
+//		List editors = (List) getEditorsMap().get(editorId);
+//		if (editors == null) {
+//			editors = new ArrayList();
+//			getEditorsMap().put(editorId, editors);
+//		}
+		//editors.add(editor);
 	}
 
 	/**

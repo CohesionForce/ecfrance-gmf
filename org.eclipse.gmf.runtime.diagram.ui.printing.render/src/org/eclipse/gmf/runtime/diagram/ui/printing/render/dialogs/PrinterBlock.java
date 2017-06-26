@@ -34,7 +34,8 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * A section of the JPS print dialog that adds printer options.
@@ -218,9 +219,8 @@ class PrinterBlock extends DialogBlock {
 	}
 		
 	private void openPrintOptionsDialog() {
-
-		JPSOptionsDialog dlg = new JPSOptionsDialog(PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getShell(), bindings, options);
+		//FIXME - SHELL
+		JPSOptionsDialog dlg = new JPSOptionsDialog(Display.getDefault().getActiveShell(), bindings, options);
 		dlg.open();
 
 	}

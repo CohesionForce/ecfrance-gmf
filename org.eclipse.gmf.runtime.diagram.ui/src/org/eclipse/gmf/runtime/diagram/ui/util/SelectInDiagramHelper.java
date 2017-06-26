@@ -25,7 +25,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * Helper for selecting an element on a diagram.  Works for closed diagrams
@@ -63,8 +63,9 @@ public class SelectInDiagramHelper {
 				DiagramEditor diagramEditor = ((DiagramEditor) obj);
 				if (diagramEditor.getDiagram().equals(diagram)) {
 					//it's already open, just activate
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-						.getActivePage().activate(diagramEditor);
+					//FIXME - PartService
+//					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+//						.getActivePage().activate(diagramEditor);
 					return diagramEditor;
 				}
 			}
@@ -85,32 +86,33 @@ public class SelectInDiagramHelper {
 	 * @param view View to select
 	 */
 	public static void selectElement(View view) {
-		IEditorPart editorPart = PlatformUI.getWorkbench()
-			.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		//FIXME - PartService
+//		IEditorPart editorPart = PlatformUI.getWorkbench()
+//			.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 
 		//DiagramEditor should be activated
-		Assert.isTrue(editorPart instanceof DiagramEditor);
-
-		DiagramEditor diagramEditor = (DiagramEditor) editorPart;
+//		Assert.isTrue(editorPart instanceof DiagramEditor);
+//
+//		DiagramEditor diagramEditor = (DiagramEditor) editorPart;
 
 		//activated DiagramEditor must be the one that corresponds to
 		//this view's diagram
-		Assert.isTrue(diagramEditor.getDiagram().equals(view.getDiagram()));
+//		Assert.isTrue(diagramEditor.getDiagram().equals(view.getDiagram()));
 
 		//diagramEditor instanceof IDiagramWorkbenchPart
-		IDiagramGraphicalViewer viewer = diagramEditor
-			.getDiagramGraphicalViewer();
-		Assert.isNotNull(viewer);
+//		IDiagramGraphicalViewer viewer = diagramEditor
+//			.getDiagramGraphicalViewer();
+//		Assert.isNotNull(viewer);
 
 		//find the edit part
-		Object obj = viewer.getEditPartRegistry().get(view);
+//		Object obj = viewer.getEditPartRegistry().get(view);
 
-		if (obj instanceof EditPart) {
-			viewer.select((EditPart) obj);
-		} else {
-			//could not activate the edit part from the registry
-			Assert.isTrue(false);
-		}
+//		if (obj instanceof EditPart) {
+//			viewer.select((EditPart) obj);
+//		} else {
+//			//could not activate the edit part from the registry
+//			Assert.isTrue(false);
+//		}
 
 	}
 

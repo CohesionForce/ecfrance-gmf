@@ -16,7 +16,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 
@@ -73,7 +73,9 @@ public class EditorIDEPlugin extends AbstractUIPlugin {
 	 * @return the active workbench window
 	 */
 	public static IWorkbenchWindow getActiveWorkbenchWindow() {
-		return PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		//FIXME - PartService
+//		return PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		return null;
 	}
 
 	/**

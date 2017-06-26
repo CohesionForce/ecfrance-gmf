@@ -33,7 +33,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * This Action is used to send a request that will destroy a semantic element
@@ -114,15 +114,16 @@ public class DeleteFromModelAction
 		setId(ActionIds.ACTION_DELETE_FROM_MODEL);
 		setText(DiagramUIMessages.DiagramEditor_Delete_from_Model);
 		setToolTipText(DiagramUIMessages.DiagramEditor_Delete_from_ModelToolTip);
-		ISharedImages workbenchImages = PlatformUI.getWorkbench().getSharedImages();
-		setHoverImageDescriptor(
-			workbenchImages.getImageDescriptor(
-				ISharedImages.IMG_TOOL_DELETE));
-		setImageDescriptor(
-			workbenchImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
-		setDisabledImageDescriptor(
-			workbenchImages.getImageDescriptor(
-				ISharedImages.IMG_TOOL_DELETE_DISABLED));
+		//FIXME - IMAGES
+//		ISharedImages workbenchImages = PlatformUI.getWorkbench().getSharedImages();
+//		setHoverImageDescriptor(
+//			workbenchImages.getImageDescriptor(
+//				ISharedImages.IMG_TOOL_DELETE));
+//		setImageDescriptor(
+//			workbenchImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
+//		setDisabledImageDescriptor(
+//			workbenchImages.getImageDescriptor(
+//				ISharedImages.IMG_TOOL_DELETE_DISABLED));
 		
 	}
 	

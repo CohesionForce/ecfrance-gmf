@@ -42,7 +42,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 
 /**
@@ -290,8 +290,9 @@ public class CopyToImageDialog extends Dialog {
 		createGenerateHTMLGroup(composite);
 		createMessageGroup(composite);
         
-        PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, 
-            "org.eclipse.gmf.runtime.diagram.ui.render.egmf0400"); //$NON-NLS-1$
+		//FIXME - HELP
+//        PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, 
+//            "org.eclipse.gmf.runtime.diagram.ui.render.egmf0400"); //$NON-NLS-1$
 
 		return composite;
 	}

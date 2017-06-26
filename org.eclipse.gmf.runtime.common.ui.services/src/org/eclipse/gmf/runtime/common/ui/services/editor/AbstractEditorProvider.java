@@ -14,7 +14,7 @@ package org.eclipse.gmf.runtime.common.ui.services.editor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
@@ -42,20 +42,22 @@ public abstract class AbstractEditorProvider
 	 * @see IEditorProvider#openEditor(IEditorInput)
 	 */
 	public IEditorPart openEditor(IEditorInput editorInput) {
-		try {
-			return PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-				.getActivePage().openEditor(editorInput,
-					getEditorId(editorInput));
-		} catch (PartInitException e) {
-			Trace
-				.catching(CommonUIServicesPlugin.getDefault(),
-					CommonUIServicesDebugOptions.EXCEPTIONS_CATCHING,
-					CommonUIServicesPlugin.getDefault().getClass(),
-					"openEditor", e); //$NON-NLS-1$
-			Log.error(CommonUIServicesPlugin.getDefault(),
-				CommonUIServicesStatusCodes.SERVICE_FAILURE, "openEditor", e); //$NON-NLS-1$
+//		try {
+			//FIXME - PartService
+//			return PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+//				.getActivePage().openEditor(editorInput,
+//					getEditorId(editorInput));
 			return null;
-		}
+//		} catch (PartInitException e) {
+//			Trace
+//				.catching(CommonUIServicesPlugin.getDefault(),
+//					CommonUIServicesDebugOptions.EXCEPTIONS_CATCHING,
+//					CommonUIServicesPlugin.getDefault().getClass(),
+//					"openEditor", e); //$NON-NLS-1$
+//			Log.error(CommonUIServicesPlugin.getDefault(),
+//				CommonUIServicesStatusCodes.SERVICE_FAILURE, "openEditor", e); //$NON-NLS-1$
+//			return null;
+//		}
 	}
 
 	/**

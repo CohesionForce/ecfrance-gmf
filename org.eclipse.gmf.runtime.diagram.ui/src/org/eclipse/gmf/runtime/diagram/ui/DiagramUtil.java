@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * Provides miscellaneous diagram utilities
@@ -55,8 +55,9 @@ public class DiagramUtil {
 			IWorkbenchWindow window) {
 		if (null == diagram)
 			throw new NullPointerException("Argument 'diagram' is null"); //$NON-NLS-1$
-		if (window == null)
-			window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		//FIXME - PartService
+//		if (window == null)
+//			window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 
 		List editors = EditorService.getInstance().getRegisteredEditorParts();
 		for (Iterator j = editors.iterator(); j.hasNext();) {

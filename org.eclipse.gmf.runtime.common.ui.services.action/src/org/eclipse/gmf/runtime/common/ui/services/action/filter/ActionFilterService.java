@@ -35,7 +35,7 @@ import org.eclipse.gmf.runtime.common.ui.services.action.internal.filter.IAction
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * A service that provides action filters that can be used in evaluating action
@@ -316,8 +316,9 @@ public class ActionFilterService
 	 */	
 	protected void updateCachedData() {
 		ISelection selection = null;
-		IWorkbenchWindow window = PlatformUI.getWorkbench()
-			.getActiveWorkbenchWindow();
+		//FIXME - SelectionService
+		IWorkbenchWindow window = null;//PlatformUI.getWorkbench()
+//			.getActiveWorkbenchWindow();
 
 		if (null != window) {
 			selection = window.getSelectionService().getSelection();

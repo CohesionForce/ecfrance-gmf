@@ -32,7 +32,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorMatchingStrategy;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
@@ -98,13 +98,14 @@ public class IDEDiagramDocumentEditor
 		// Check if the editor is already open
 		IEditorMatchingStrategy matchingStrategy = getEditorDescriptor().getEditorMatchingStrategy();
 		
-		IEditorReference[] editorRefs = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
-		for (int i=0; i < editorRefs.length; i++) {
-			if (matchingStrategy.matches(editorRefs[i],newInput)) {
-				MessageDialog.openWarning(shell, org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileSaveAs_DialogTitle, org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileSaveAs_DialogMessageText);
-				return;
-			}
-		}
+		//FIXME - PartService
+//		IEditorReference[] editorRefs = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+//		for (int i=0; i < editorRefs.length; i++) {
+//			if (matchingStrategy.matches(editorRefs[i],newInput)) {
+//				MessageDialog.openWarning(shell, org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileSaveAs_DialogTitle, org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileSaveAs_DialogMessageText);
+//				return;
+//			}
+//		}
 		
 		boolean success= false;		
 		try {

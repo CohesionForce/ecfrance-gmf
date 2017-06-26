@@ -25,7 +25,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * The copy action that copies the bitmap information on to the clipboard
@@ -60,11 +60,12 @@ abstract public class CopyAction extends DiagramAction {
 		setText(DiagramUIActionsMessages.CopyAction_Copy);
 
 		/*  set the image */
-		ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
-		
-		setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
-		setHoverImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
-		setDisabledImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY_DISABLED));
+		//FIXME - IMAGES
+//		ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
+//		
+//		setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
+//		setHoverImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
+//		setDisabledImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY_DISABLED));
 
 		/* set the id */
 		setId(ActionIds.ACTION_COPY_BITMAP);

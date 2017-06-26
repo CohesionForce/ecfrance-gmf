@@ -47,8 +47,9 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.printing.Printer;
 import org.eclipse.swt.printing.PrinterData;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * This class supports printing using the SWT printing constructs.
@@ -202,7 +203,8 @@ public class SWTDiagramPrinter extends DiagramPrinter
         assert null != printer : "printer must be set"; //$NON-NLS-1$
         
         //check for rtl orientation...
-        int style = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell().getStyle();
+        //FIXME - SHELL
+        int style = Display.getDefault().getActiveShell().getStyle();
         if ((style & SWT.MIRRORED) != 0)
             this.gc = new GC(printer, SWT.RIGHT_TO_LEFT);
         else

@@ -19,7 +19,6 @@ import org.eclipse.gmf.runtime.common.ui.services.elementselection.IElementSelec
 import org.eclipse.gmf.runtime.common.ui.services.elementselection.IElementSelectionListener;
 import org.eclipse.gmf.runtime.common.ui.services.elementselection.IMatchingObjectEvent;
 import org.eclipse.gmf.runtime.common.ui.services.elementselection.MatchingObjectEventType;
-import org.eclipse.ui.PlatformUI;
 
 /**
  * For backward compatibility, use the element selection service and return the
@@ -71,14 +70,15 @@ public class ElementSelectionList {
                     break;
                 }
             }
-            if (PlatformUI.getWorkbench().getDisplay().getThread().equals(
-                Thread.currentThread())) {
-            	if (PlatformUI.getWorkbench().getDisplay() != null) {
-                    while (PlatformUI.getWorkbench().getDisplay().readAndDispatch()) {
-                        // nothing, just dispatch events so the UI is not hung.
-                    }
-            	}
-            }
+            //FIXME - Not sure what this is doing
+//            if (PlatformUI.getWorkbench().getDisplay().getThread().equals(
+//                Thread.currentThread())) {
+//            	if (PlatformUI.getWorkbench().getDisplay() != null) {
+//                    while (PlatformUI.getWorkbench().getDisplay().readAndDispatch()) {
+//                        // nothing, just dispatch events so the UI is not hung.
+//                    }
+//            	}
+//            }
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {

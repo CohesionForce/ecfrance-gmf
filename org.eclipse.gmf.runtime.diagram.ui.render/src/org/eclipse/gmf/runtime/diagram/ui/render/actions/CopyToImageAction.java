@@ -49,7 +49,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * Action to copy the selected shapes in the diagram or the entire diagram to an
@@ -88,14 +88,15 @@ public class CopyToImageAction
 		setId(ActionIds.ACTION_COPY_TO_IMAGE);
 
 		/* set the image */
-		ISharedImages sharedImages = PlatformUI.getWorkbench()
-			.getSharedImages();
-		setImageDescriptor(sharedImages
-			.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
-		setHoverImageDescriptor(sharedImages
-			.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
-		setDisabledImageDescriptor(sharedImages
-			.getImageDescriptor(ISharedImages.IMG_TOOL_COPY_DISABLED));
+		//FIXME - IMAGES
+//		ISharedImages sharedImages = PlatformUI.getWorkbench()
+//			.getSharedImages();
+//		setImageDescriptor(sharedImages
+//			.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
+//		setHoverImageDescriptor(sharedImages
+//			.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
+//		setDisabledImageDescriptor(sharedImages
+//			.getImageDescriptor(ISharedImages.IMG_TOOL_COPY_DISABLED));
 	}
 
 	public void run() {

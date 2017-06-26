@@ -34,7 +34,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 
 /**
@@ -69,15 +69,16 @@ public class DeleteFromDiagramAction extends DiagramAction{
 		setId(ActionIds.ACTION_DELETE_FROM_DIAGRAM);
 		setText(DiagramUIActionsMessages.DeleteFromDiagram_ActionLabelText);
 		setToolTipText(DiagramUIActionsMessages.DeleteFromDiagram_ActionToolTipText);
-		ISharedImages workbenchImages = PlatformUI.getWorkbench().getSharedImages();
-		setHoverImageDescriptor(
-			workbenchImages.getImageDescriptor(
-				ISharedImages.IMG_TOOL_DELETE));
-		setImageDescriptor(
-			workbenchImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
-		setDisabledImageDescriptor(
-			workbenchImages.getImageDescriptor(
-				ISharedImages.IMG_TOOL_DELETE_DISABLED));
+		//FIXME - IMAGES
+//		ISharedImages workbenchImages = PlatformUI.getWorkbench().getSharedImages();
+//		setHoverImageDescriptor(
+//			workbenchImages.getImageDescriptor(
+//				ISharedImages.IMG_TOOL_DELETE));
+//		setImageDescriptor(
+//			workbenchImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
+//		setDisabledImageDescriptor(
+//			workbenchImages.getImageDescriptor(
+//				ISharedImages.IMG_TOOL_DELETE_DISABLED));
 		
 	}
 	

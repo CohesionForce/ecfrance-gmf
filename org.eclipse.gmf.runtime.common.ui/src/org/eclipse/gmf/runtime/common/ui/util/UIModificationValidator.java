@@ -25,7 +25,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWindowListener;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * A validator responsible for doing the actual validation on files. The
@@ -41,63 +41,63 @@ public class UIModificationValidator
     /**
      * Window listener
      */
-    private WindowListener listener;
+//    private WindowListener listener;
     
     /**
      * Window listener to obtain the active shell
      * 
      * @author wdiu, Wayne Diu
      */
-    private class WindowListener implements IWindowListener {
-        /**
-         * A shell that can be specified as a parameter in the constructor
-         */
-        protected Shell shell;
-        
-        /* (non-Javadoc)
-         * @see org.eclipse.ui.IWindowListener#windowActivated(org.eclipse.ui.IWorkbenchWindow)
-         */
-        public void windowActivated(IWorkbenchWindow window) {
-            shell = window.getShell();
-        }
-
-        /* (non-Javadoc)
-         * @see org.eclipse.ui.IWindowListener#windowClosed(org.eclipse.ui.IWorkbenchWindow)
-         */
-        public void windowClosed(IWorkbenchWindow window) {
-            //do nothing
-        }
-
-        /* (non-Javadoc)
-         * @see org.eclipse.ui.IWindowListener#windowDeactivated(org.eclipse.ui.IWorkbenchWindow)
-         */
-        public void windowDeactivated(IWorkbenchWindow window) {
-            //do nothing
-        }
-
-        /* (non-Javadoc)
-         * @see org.eclipse.ui.IWindowListener#windowOpened(org.eclipse.ui.IWorkbenchWindow)
-         */
-        public void windowOpened(IWorkbenchWindow window) {
-            //do nothing
-        }
-        
-        /**
-         * Constructor that takes a shell
-         * @param theShell initial active shell
-         */
-        public WindowListener(Shell theShell) {
-            this.shell = theShell;
-        }
-        
-        /**
-         * Returns the active shell
-         * @return active Shell
-         */
-        public Shell getShell() {
-            return shell;
-        }
-    }
+//    private class WindowListener implements IWindowListener {
+//        /**
+//         * A shell that can be specified as a parameter in the constructor
+//         */
+//        protected Shell shell;
+//        
+//        /* (non-Javadoc)
+//         * @see org.eclipse.ui.IWindowListener#windowActivated(org.eclipse.ui.IWorkbenchWindow)
+//         */
+//        public void windowActivated(IWorkbenchWindow window) {
+//            shell = window.getShell();
+//        }
+//
+//        /* (non-Javadoc)
+//         * @see org.eclipse.ui.IWindowListener#windowClosed(org.eclipse.ui.IWorkbenchWindow)
+//         */
+//        public void windowClosed(IWorkbenchWindow window) {
+//            //do nothing
+//        }
+//
+//        /* (non-Javadoc)
+//         * @see org.eclipse.ui.IWindowListener#windowDeactivated(org.eclipse.ui.IWorkbenchWindow)
+//         */
+//        public void windowDeactivated(IWorkbenchWindow window) {
+//            //do nothing
+//        }
+//
+//        /* (non-Javadoc)
+//         * @see org.eclipse.ui.IWindowListener#windowOpened(org.eclipse.ui.IWorkbenchWindow)
+//         */
+//        public void windowOpened(IWorkbenchWindow window) {
+//            //do nothing
+//        }
+//        
+//        /**
+//         * Constructor that takes a shell
+//         * @param theShell initial active shell
+//         */
+//        public WindowListener(Shell theShell) {
+//            this.shell = theShell;
+//        }
+//        
+//        /**
+//         * Returns the active shell
+//         * @return active Shell
+//         */
+//        public Shell getShell() {
+//            return shell;
+//        }
+//    }
     
 	/**
 	 * Error status code. The OK status code is defined by Eclipse's Status
@@ -110,20 +110,20 @@ public class UIModificationValidator
      * Constructs a UI modification validator and initializes the UI context
      */
 	public UIModificationValidator() {
-		if (PlatformUI.isWorkbenchRunning()) {
-			PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
-				public void run() {
-
-					if (PlatformUI.isWorkbenchRunning()) {
-						IWorkbenchWindow window = PlatformUI.getWorkbench()
-								.getActiveWorkbenchWindow();
-						Shell shell = window == null ? null : window.getShell();
-						listener = new WindowListener(shell);
-						PlatformUI.getWorkbench().addWindowListener(listener);
-					}
-				}
-			});
-		}
+//		if (PlatformUI.isWorkbenchRunning()) {
+//			PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+//				public void run() {
+//
+//					if (PlatformUI.isWorkbenchRunning()) {
+//						IWorkbenchWindow window = PlatformUI.getWorkbench()
+//								.getActiveWorkbenchWindow();
+//						Shell shell = window == null ? null : window.getShell();
+//						listener = new WindowListener(shell);
+//						PlatformUI.getWorkbench().addWindowListener(listener);
+//					}
+//				}
+//			});
+//		}
 	}
             
    /**
@@ -177,7 +177,8 @@ public class UIModificationValidator
      */
     public IStatus validateEdit(IFile[] files) {
 
-		Shell shell = listener == null ? null : listener.getShell();
+//		Shell shell = listener == null ? null : listener.getShell();
+		Shell shell = Display.getDefault().getActiveShell();
 		RunnableWithStatus r = new RunnableWithStatus(files, shell);
 		Display display = DisplayUtils.getDisplay();
 
@@ -204,12 +205,12 @@ public class UIModificationValidator
 	 * Disposes this UI modification validator.
 	 */
     public void dispose() {
-    	if (listener != null && !listener.getShell().isDisposed()) {
-        	DisplayUtils.getDisplay().asyncExec(new Runnable() {
-                public void run() {
-                    PlatformUI.getWorkbench().removeWindowListener(listener);
-                }
-            });
-        }
+//    	if (listener != null && !listener.getShell().isDisposed()) {
+//        	DisplayUtils.getDisplay().asyncExec(new Runnable() {
+//                public void run() {
+//                    PlatformUI.getWorkbench().removeWindowListener(listener);
+//                }
+//            });
+//        }
     }
 }

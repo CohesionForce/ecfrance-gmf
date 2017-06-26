@@ -31,7 +31,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.internal.figures.TransparentBorder;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Path;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * Base class that most shape figures should extend from to gain default connection anchor behavior.
@@ -359,9 +359,9 @@ public class NodeFigure
 		// When in high contrast mode, there is no gradient, so set bg color to null to allow inheriting
 		// the system color.
 		Display display = Display.getCurrent();
-		if (display == null && PlatformUI.isWorkbenchRunning()) {
-			display = PlatformUI.getWorkbench().getDisplay();
-		}
+//		if (display == null && PlatformUI.isWorkbenchRunning()) {
+//			display = PlatformUI.getWorkbench().getDisplay();
+//		}
 		if (display != null && display.getHighContrast()) {
 			setBackgroundColor(null);
 			return;
@@ -392,9 +392,9 @@ public class NodeFigure
 	public boolean isUsingGradient() {
 		// When in high contrast mode, there is no gradient, so return false.
 		Display display = Display.getCurrent();
-		if (display == null && PlatformUI.isWorkbenchRunning()) {
-			display = PlatformUI.getWorkbench().getDisplay();
-		}
+//		if (display == null && PlatformUI.isWorkbenchRunning()) {
+//			display = PlatformUI.getWorkbench().getDisplay();
+//		}
 		if (display != null && display.getHighContrast()) {		
 			return false;
 		}

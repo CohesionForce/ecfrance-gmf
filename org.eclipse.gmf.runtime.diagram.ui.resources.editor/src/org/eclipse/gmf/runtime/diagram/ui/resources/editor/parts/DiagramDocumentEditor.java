@@ -82,7 +82,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.EditorActionBarContributor;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.osgi.framework.Bundle;
@@ -131,30 +131,31 @@ public class DiagramDocumentEditor
 			}
 		};
 
-		try {
+//		try {
 //			When using the progress service always a modal dialog pops up. The site should be asked for a runnable context
 //			which could be the workbench window or the progress service, depending on what the site represents.
 //			getSite().getWorkbenchWindow().getWorkbench().getProgressService().run(false, true, runnable);
 
-			getSite().getWorkbenchWindow().run(false, true, runnable);
+			//FIXME - WorkbenchWindow
+//			getSite().getWorkbenchWindow().run(false, true, runnable);
 
-		} catch (InterruptedException x) {
-			// ignore
-		} catch (InvocationTargetException x) {
-			Throwable t= x.getTargetException();
-			if (t instanceof CoreException) {
-                /*
-                /* XXX: Remove unpacking of CoreException once the following bug is
-                 *		fixed: https://bugs.eclipse.org/bugs/show_bug.cgi?id=81640
-                 */
-                CoreException e= (CoreException)t;
-                IStatus status= e.getStatus();
-                if (status.getException() != null)
-                    throw new PartInitException(status);
-               	throw new PartInitException(new Status(status.getSeverity(), status.getPlugin(), status.getCode(), status.getMessage(), t));
-            }
-			throw new PartInitException(new Status(IStatus.ERROR, EditorPlugin.getPluginId(), IStatus.OK, EditorMessages.Editor_error_init, t));
-		}
+//		} catch (InterruptedException x) {
+//			// ignore
+//		} catch (InvocationTargetException x) {
+//			Throwable t= x.getTargetException();
+//			if (t instanceof CoreException) {
+//                /*
+//                /* XXX: Remove unpacking of CoreException once the following bug is
+//                 *		fixed: https://bugs.eclipse.org/bugs/show_bug.cgi?id=81640
+//                 */
+//                CoreException e= (CoreException)t;
+//                IStatus status= e.getStatus();
+//                if (status.getException() != null)
+//                    throw new PartInitException(status);
+//               	throw new PartInitException(new Status(status.getSeverity(), status.getPlugin(), status.getCode(), status.getMessage(), t));
+//            }
+//			throw new PartInitException(new Status(IStatus.ERROR, EditorPlugin.getPluginId(), IStatus.OK, EditorMessages.Editor_error_init, t));
+//		}
 	}
 
 	/* (non-Javadoc)
@@ -162,8 +163,9 @@ public class DiagramDocumentEditor
 	 */
 	protected final void setSite(IWorkbenchPartSite site) {
 		super.setSite(site);
-		fActivationListener= new ActivationListener(site.getWorkbenchWindow().getPartService());
-		fActivationListener.activate();
+		//FIXME - PartService
+//		fActivationListener= new ActivationListener(site.getWorkbenchWindow().getPartService());
+//		fActivationListener.activate();
 	}
 
 	/*
@@ -763,9 +765,10 @@ public class DiagramDocumentEditor
 		} catch (CoreException x) {
 			IStatus status= x.getStatus();
 			if (status == null || status.getSeverity() != IStatus.CANCEL) {
-				Bundle bundle= Platform.getBundle(PlatformUI.PLUGIN_ID);
-				ILog log= Platform.getLog(bundle);
-				log.log(x.getStatus());
+				//FIXME - Plugin Id
+//				Bundle bundle= Platform.getBundle(PlatformUI.PLUGIN_ID);
+//				ILog log= Platform.getLog(bundle);
+//				log.log(x.getStatus());
 
 				Shell shell= getSite().getShell();
 				String title= EditorMessages.Editor_error_validateEdit_title;
@@ -838,9 +841,10 @@ public class DiagramDocumentEditor
 			}
 
 		} catch (CoreException x) {
-			Bundle bundle= Platform.getBundle(PlatformUI.PLUGIN_ID);
-			ILog log= Platform.getLog(bundle);
-			log.log(x.getStatus());
+			//FIXME - Plugin Id
+//			Bundle bundle= Platform.getBundle(PlatformUI.PLUGIN_ID);
+//			ILog log= Platform.getLog(bundle);
+//			log.log(x.getStatus());
 		}
 	}
 
@@ -1125,12 +1129,14 @@ public class DiagramDocumentEditor
 		
 		public void activate() {
 			fPartService.addPartListener(this);
-			PlatformUI.getWorkbench().addWindowListener(this);
+			//FIXME - Window Listener
+//			PlatformUI.getWorkbench().addWindowListener(this);
 		}
 		
 		public void deactivate() {
 			fPartService.removePartListener(this);
-			PlatformUI.getWorkbench().removeWindowListener(this);
+			//FIXME - Window Listener
+//			PlatformUI.getWorkbench().removeWindowListener(this);
 		}
 
 		/*
@@ -1498,9 +1504,11 @@ public class DiagramDocumentEditor
 	 * @return the editor descriptor
 	 */
 	final protected IEditorDescriptor getEditorDescriptor() {
-		IEditorRegistry editorRegistry= PlatformUI.getWorkbench().getEditorRegistry();
-		IEditorDescriptor editorDesc= editorRegistry.findEditor(getSite().getId());
-		return editorDesc;
+		//FIXME - Editor Registry
+//		IEditorRegistry editorRegistry= PlatformUI.getWorkbench().getEditorRegistry();
+//		IEditorDescriptor editorDesc= editorRegistry.findEditor(getSite().getId());
+//		return editorDesc;
+		return null;
 	}
 
 	/* (non-Javadoc)
@@ -1662,15 +1670,16 @@ public class DiagramDocumentEditor
 	private class PropertyChangeListener implements IPropertyChangeListener {
 
 		public void propertyChange(PropertyChangeEvent event) {
-			if (PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart() == DiagramDocumentEditor.this) {
-				String property = event.getProperty();
-				if (IPreferenceConstants.PREF_SHOW_STATUS_LINE
-						.equals(property)) {
-					if (!isStatusLineOn()) {
-						removeStatusLineContributions();
-					}
-				}
-			}
+			//FIXME - PartService
+//			if (PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart() == DiagramDocumentEditor.this) {
+//				String property = event.getProperty();
+//				if (IPreferenceConstants.PREF_SHOW_STATUS_LINE
+//						.equals(property)) {
+//					if (!isStatusLineOn()) {
+//						removeStatusLineContributions();
+//					}
+//				}
+//			}
 		}
 	}
 

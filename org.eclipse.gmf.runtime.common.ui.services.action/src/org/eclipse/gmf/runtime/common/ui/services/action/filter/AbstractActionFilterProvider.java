@@ -15,7 +15,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
 import org.eclipse.gmf.runtime.common.ui.services.action.internal.filter.IActionFilterProvider;
@@ -60,9 +60,10 @@ public abstract class AbstractActionFilterProvider
 	protected ISelection getSelection() {
 
 		ISelection selection = null;
-		
-		IWorkbenchWindow window =
-			PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+	
+		//FIXME - SelectionService
+		IWorkbenchWindow window = null;
+//			PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 
 		if (null != window) {
 			selection = window.getSelectionService().getSelection();

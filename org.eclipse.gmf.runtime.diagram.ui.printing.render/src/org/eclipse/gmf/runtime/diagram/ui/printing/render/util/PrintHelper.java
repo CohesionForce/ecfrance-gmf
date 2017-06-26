@@ -19,7 +19,8 @@ import org.eclipse.gmf.runtime.diagram.ui.printing.render.dialogs.JPSPrintDialog
 import org.eclipse.gmf.runtime.diagram.ui.printing.render.model.PrintOptions;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.printing.PrinterData;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * Default implementation of a print-helper.
@@ -69,8 +70,8 @@ public class PrintHelper implements IPrintHelper {
 		PrinterData result = null;
 		this.diagramList = availableDiagramList;
 
-		JPSPrintDialog dlg = new JPSPrintDialog(PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow(), options, this.diagramList);
+		//FIXME - SHELL
+		JPSPrintDialog dlg = new JPSPrintDialog(Display.getDefault().getActiveShell(), options, this.diagramList);
 
 		if (dlg.open() == IDialogConstants.OK_ID) {
 			if (options.getDestination() != null) {

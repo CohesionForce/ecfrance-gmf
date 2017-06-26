@@ -31,7 +31,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.part.CellEditorActionHandler;
 
@@ -160,11 +160,12 @@ public class TextDirectEditManager extends DirectEditManagerBase {
 
 		//Hook the cell editor's copy/paste actions to the actionBars so that they can
 		// be invoked via keyboard shortcuts.
-		actionBars = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor().getEditorSite().getActionBars();
-		saveCurrentActions(actionBars);
-		actionHandler = new CellEditorActionHandler(actionBars);
-		actionHandler.addCellEditor(getCellEditor());
-		actionBars.updateActionBars();
+		//FIXME - EditorSite
+//		actionBars = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor().getEditorSite().getActionBars();
+//		saveCurrentActions(actionBars);
+//		actionHandler = new CellEditorActionHandler(actionBars);
+//		actionHandler.addCellEditor(getCellEditor());
+//		actionBars.updateActionBars();
 
 	}
 

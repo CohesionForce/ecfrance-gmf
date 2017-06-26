@@ -39,6 +39,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Item;
 import org.eclipse.swt.widgets.Listener;
@@ -49,7 +50,6 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
 
 /**
  * A custom contribution item that goes into a workbenchpart's toolbar
@@ -653,9 +653,9 @@ public abstract class AbstractContributionItem
 	        if (operation != null) {
 	            IUndoContext partContext = getUndoContext();
 	
-	            if (partContext != null && operation.hasContext(partContext)
-	            		&& PlatformUI.isWorkbenchRunning()) {
-	                PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+	            //FIXME - DISPLAY
+	            if (partContext != null && operation.hasContext(partContext)) {
+	                Display.getDefault().asyncExec(new Runnable() {
 	
 	                    public void run() {
 	                        update();

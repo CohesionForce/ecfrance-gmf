@@ -84,7 +84,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.PlatformUI;
+//import org.eclipse.ui.PlatformUI;
 
 /**
  * Print Preview Action to display the Print Preview dialog. There are no static
@@ -376,20 +376,24 @@ public class PrintPreviewHelper{
 		}
 		
 		if (getDiagramEditorPart() == null) {
+			//FIXME - SHELL
 			MessageDialog
-				.openInformation(PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getShell(),
+//				.openInformation(PlatformUI.getWorkbench()
+//					.getActiveWorkbenchWindow().getShell(),
+				.openInformation(Display.getDefault().getActiveShell(),
 					DiagramUIPrintingMessages.PrintPreview_Title, 
 					DiagramUIPrintingMessages.PrintPreview_NotEnabled); 
 			return;
 		}
 
 		if (!isPrinterInstalled()) {
+			//FIXME - SHELL
 			WindowUtil
 				.doMessageBox(DiagramUIPrintingMessages.PrintPreview_NoPrinterInstalled, 
 					DiagramUIPrintingMessages.PrintPreview_Title, 
-					SWT.ICON_ERROR, PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow().getShell());
+//					SWT.ICON_ERROR, PlatformUI.getWorkbench()
+//						.getActiveWorkbenchWindow().getShell());
+					SWT.ICON_ERROR, Display.getDefault().getActiveShell());
 			return;
 		}
 
@@ -416,10 +420,12 @@ public class PrintPreviewHelper{
 		numberOfColumnsToDisplay = 2;
 		}
 
-		Display display = PlatformUI.getWorkbench().getDisplay();
+		//FIXME - DISPLAY
+		Display display = Display.getDefault(); //PlatformUI.getWorkbench().getDisplay();
 		
         //check for rtl Torientation...
-        int style = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell().getStyle();
+		//FIXME - SHELL
+        int style = Display.getDefault().getActiveShell().getStyle();//PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell().getStyle();
         if ((style & SWT.MIRRORED) != 0) {
             shell = new Shell(display, SWT.APPLICATION_MODAL | SWT.TITLE
                 | SWT.CLOSE | SWT.BORDER | SWT.RIGHT_TO_LEFT);
@@ -430,11 +436,9 @@ public class PrintPreviewHelper{
         
 		
 
-		shell.setSize(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-			.getShell().getSize());
+		shell.setSize(Display.getDefault().getActiveShell().getSize());
 		shell.setText(DiagramUIPrintingMessages.PrintPreview_Title);
-		shell.setLocation(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-			.getShell().getLocation());
+		shell.setLocation(Display.getDefault().getActiveShell().getLocation());
 		shell.setLayout(new GridLayout(1, true));
 
 		ToolBar bar = new ToolBar(shell, SWT.FLAT | SWT.HORIZONTAL);
@@ -452,10 +456,11 @@ public class PrintPreviewHelper{
 				//should not be enabled
 				Assert.isNotNull(printActionHelper);
 				
-				printActionHelper
-					.doPrint(PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow().getActivePage()
-						.getActivePart());
+				//FIXME - PartService
+//				printActionHelper
+//					.doPrint(PlatformUI.getWorkbench()
+//						.getActiveWorkbenchWindow().getActivePage()
+//						.getActivePart());
 				shell.setActive();
 				
 			}
@@ -878,16 +883,17 @@ public class PrintPreviewHelper{
 	 */
 	private DiagramEditor getDiagramEditorPart() {
 		//more explicit than using window
-		IEditorPart editorPart = PlatformUI.getWorkbench()
-			.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-
-		if (!(editorPart instanceof DiagramEditor)) {
+		//FIXME - PartService
+//		IEditorPart editorPart = PlatformUI.getWorkbench()
+//			.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+//
+//		if (!(editorPart instanceof DiagramEditor)) {
 			return null;
-		}
-
-		DiagramEditor diagramEditorPart = (DiagramEditor) editorPart;
-
-		return diagramEditorPart;
+//		}
+//
+//		DiagramEditor diagramEditorPart = (DiagramEditor) editorPart;
+//
+//		return diagramEditorPart;
 	}
 
 	/**
